@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Cube Illusion</title>
+
+  <style>
+    body{
+      margin:0;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      background:#111;
+      overflow:hidden;
+      font-family:Arial;
+    }
+
+    .scene{
+      width:250px;
+      height:250px;
+      perspective:800px;
+    }
+
+    .cube{
+      width:150px;
+      height:150px;
+      position:relative;
+      transform-style:preserve-3d;
+      animation:rotateCube 8s linear infinite;
+      margin:auto;
+      top:50px;
+    }
+
+    .face{
+      position:absolute;
+      width:150px;
+      height:150px;
+      border:2px solid white;
+      background:rgba(0, 150, 255, 0.5);
+      box-shadow:0 0 20px cyan;
+    }
+
+    /* Front */
+    .front{
+      transform:translateZ(75px);
+    }
+
+    /* Back */
+    .back{
+      transform:rotateY(180deg) translateZ(75px);
+    }
+
+    /* Right */
+    .right{
+      transform:rotateY(90deg) translateZ(75px);
+    }
+
+    /* Left */
+    .left{
+      transform:rotateY(-90deg) translateZ(75px);
+    }
+
+    /* Top */
+    .top{
+      transform:rotateX(90deg) translateZ(75px);
+    }
+
+    /* Bottom */
+    .bottom{
+      transform:rotateX(-90deg) translateZ(75px);
+    }
+
+    @keyframes rotateCube{
+      0%{
+        transform:rotateX(0deg) rotateY(0deg);
+      }
+
+      100%{
+        transform:rotateX(360deg) rotateY(360deg);
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="scene">
+
+    <div class="cube">
+
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
